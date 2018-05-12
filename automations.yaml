@@ -1,0 +1,33 @@
+- id: '1526132812003'
+  alias: HVAC Doors Open
+  trigger:
+  - entity_id: group.all_doors
+    from: 'off'
+    platform: state
+    to: 'on'
+    for:
+      minutes: 2
+      seconds: 30
+  condition:
+  - condition: state
+    entity_id: group.all_doors
+    state: 'on'
+  action:
+  - data:
+      away_mode: 'on'
+    service: climate.set_away_mode
+- id: '1526134493664'
+  alias: HVAC Doors Closed
+  trigger:
+  - entity_id: group.all_doors
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition:
+  - condition: state
+    entity_id: group.all_doors
+    state: 'off'
+  action:
+  - data:
+      resume_all: 'true'
+    service: climate.ecobee_resume_program
