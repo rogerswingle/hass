@@ -31,3 +31,31 @@
   - data:
       resume_all: 'true'
     service: climate.ecobee_resume_program
+- id: '1537844255740'
+  alias: Dehumidifier On
+  trigger:
+  - above: '45'
+    entity_id: sensor.basement_humidity
+    platform: numeric_state
+  condition:
+  - condition: state
+    entity_id: switch.dehumidifier
+    state: 'off'
+  action:
+  - data:
+      entity_id: switch.dehumidifier
+    service: switch.turn_on
+- id: '1537844372849'
+  alias: Dehumidifier Off
+  trigger:
+  - below: '41'
+    entity_id: sensor.basement_humidity
+    platform: numeric_state
+  condition:
+  - condition: state
+    entity_id: switch.dehumidifier
+    state: 'on'
+  action:
+  - data:
+      entity_id: switch.dehumidifier
+    service: switch.turn_off

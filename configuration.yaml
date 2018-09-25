@@ -6,6 +6,59 @@ abode:
 
 ecobee:
   api_key: !secret ecobee_api_key
+  
+ring:
+  username: rogerswingle@gmail.com
+  password: !secret ring_password
+  
+binary_sensor:
+   - platform: ring
+
+camera:
+  - platform: ring
+
+ffmpeg:
+
+wink:
+
+# Weather prediction
+sensor:
+  - platform: darksky
+    name: weather
+    api_key: !secret darksky_api
+    monitored_conditions:
+      - summary
+      - icon
+      - nearest_storm_distance
+      - nearest_storm_bearing
+      - precip_type
+      - precip_intensity
+      - precip_probability
+      - temperature
+      - apparent_temperature
+      - dew_point
+      - wind_speed
+      - wind_bearing
+      - cloud_cover
+      - humidity
+      - pressure
+      - visibility
+      - ozone
+      - minutely_summary
+      - hourly_summary
+      - daily_summary
+      - precip_intensity_max
+      - precip_accumulation
+      - uv_index
+  - platform: ring
+  - platform: systemmonitor
+    resources:
+      - type: disk_free
+        arg: /
+      - type: memory_free
+      - type: processor_use
+      - type: last_boot
+
 
 homeassistant:
   # Name of the location where Home Assistant is running
@@ -21,9 +74,14 @@ homeassistant:
   time_zone: America/New_York
   # Customization file
   customize: !include customize.yaml
+  auth_providers:
+   - type: homeassistant
+   - type: legacy_api_password
+
 
 # Show links to resources in log and frontend
 introduction:
+
 
 # Enables the frontend
 frontend:
@@ -42,10 +100,15 @@ http:
   api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   base_url: !secret base_url
-  use_x_forwarded_for: true
   ip_ban_enabled: true
   login_attempts_threshold: 5
-
+  use_x_forwarded_for: true
+  trusted_networks:
+   - 10.42.0.0/16
+   - 127.0.0.1
+  trusted_proxies:
+   - 10.42.0.0/16
+   - 127.0.0.1
 # Checks for available updates
 # Note: This component will send some information about your system to
 # the developers to assist with development of Home Assistant.
@@ -75,25 +138,7 @@ map:
 # Track the sun
 sun:
 
-# Weather prediction
-sensor:
-  - platform: yr
-    name: Weather
-    forecast: 24
-    monitored_conditions:
-      - temperature
-      - symbol
-      - precipitation
-      - windSpeed
-      - pressure
-      - windDirection
-      - humidity
-      - fog
-      - cloudiness
-      - lowClouds
-      - mediumClouds
-      - highClouds
-      - dewpointTemperature
+
 
 # Text to speech
 tts:
@@ -102,7 +147,14 @@ tts:
 # Cloud
 cloud:
 
+influxdb:
+  host: !secret influxdb_host
+  port: 443
+  ssl: true
+  password: !secret influxdb_password
+  username: !secret influxdb_username
+
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
-zone: !include zones.yml
+zone: !include zones.yaml
