@@ -21,6 +21,10 @@ ffmpeg:
 
 wink:
 
+nest:
+  client_id: !secret nest_client_id
+  client_secret: !secret nest_client_secret
+
 # Weather prediction
 sensor:
   - platform: darksky
