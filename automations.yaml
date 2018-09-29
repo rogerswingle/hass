@@ -59,3 +59,21 @@
   - data:
       entity_id: switch.dehumidifier
     service: switch.turn_off
+- id: '1538103855906'
+  alias: Wink Sucks
+  trigger:
+  - event_data:
+      domain: light
+    event_type: call_service
+    platform: event
+  - event_data:
+      domain: lock
+    event_type: call_service
+    platform: event
+  - platform: time
+    minutes: '/5'
+    seconds: 00
+  condition: []
+  action:
+  - service: wink.refresh_state_from_wink
+  - delay: 00:00:15

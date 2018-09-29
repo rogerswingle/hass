@@ -38,6 +38,8 @@ sensor:
       - precip_type
       - precip_intensity
       - precip_probability
+      - precip_accumulation
+      - precip_intensity_max
       - temperature
       - apparent_temperature
       - dew_point
@@ -51,8 +53,6 @@ sensor:
       - minutely_summary
       - hourly_summary
       - daily_summary
-      - precip_intensity_max
-      - precip_accumulation
       - uv_index
   - platform: ring
   - platform: systemmonitor
@@ -82,22 +82,11 @@ homeassistant:
    - type: homeassistant
    - type: legacy_api_password
 
-
-# Show links to resources in log and frontend
-introduction:
-
-
 # Enables the frontend
 frontend:
 
 # Enables configuration UI
 config:
-
-panel_iframe:
-  configurator:
-    title: Configurator
-    icon: mdi:wrench
-    url: http://hassio.local:3218
 
 http:
   # Secrets are defined in the file secrets.yaml
