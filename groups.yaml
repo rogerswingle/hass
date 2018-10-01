@@ -7,13 +7,39 @@ all_doors:
     - binary_sensor.side_door
 
 main_floor:
+  view: yes
   name: Main Floor
   entities:
     - light.dining_room
     - group.kitchen
     - group.living_room
-    - light.office
+    - group.office
     - light.upstairs_hall
+    - climate.main_floor
+
+upstairs:
+  view: yes
+  name: upstairs
+  entities:
+    - light.upstairs_hall
+    - climate.upstairs
+
+basement:
+  view: yes
+  name: Basement
+  control: hidden
+  entities:
+    - light.basement
+    - switch.dehumidifier
+    - binary_sensor.side_door
+    - lock.side_door
+
+outside:
+  view: yes
+  name: Outside
+  entities:
+    - group.front_exterior
+    - group.backyard
 
 living_room:
   name: Living Room
@@ -49,15 +75,6 @@ front_exterior:
   entities:
     - light.exterior_front_left
     - light.exterior_front_right
-
-basement:
-  name: Basement
-  control: hidden
-  entities:
-    - light.basement
-    - switch.dehumidifier
-    - binary_sensor.side_door
-    - lock.side_door
 
 all_interior:
   name: All Interior
