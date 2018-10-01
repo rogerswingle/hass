@@ -19,6 +19,12 @@ camera:
 
 ffmpeg:
 
+ecovacs:
+  username: !secret ecovacs_username
+  password: !secret ecovacs_password
+  country: US
+  continent: NA
+
 wink:
 
 nest:
@@ -130,8 +136,6 @@ map:
 
 # Track the sun
 sun:
-
-
 
 # Text to speech
 tts:

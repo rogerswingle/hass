@@ -71,9 +71,19 @@
     event_type: call_service
     platform: event
   - platform: time
-    minutes: '/5'
-    seconds: 00
+    minutes: /5
+    seconds: 0
   condition: []
   action:
   - service: wink.refresh_state_from_wink
   - delay: 00:00:15
+- id: '1538412705716'
+  alias: New Automation
+  trigger:
+  - entity_id: alarm_control_panel.abode_alarm_system
+    from: disarmed
+    platform: state
+    to: armed_away
+  condition: []
+  action:
+  - service: light.turn_off
