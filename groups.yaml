@@ -19,7 +19,7 @@ main_floor_lights:
 
 backyard_lights:
   name: Backyard Lights
-  entites:
+  entities:
     - light.deck_light
     - light.kitchen_exterior
 
