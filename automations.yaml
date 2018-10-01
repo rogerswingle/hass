@@ -78,7 +78,7 @@
   - service: wink.refresh_state_from_wink
   - delay: 00:00:15
 - id: '1538412705716'
-  alias: New Automation
+  alias: Turn off Lights when Alarm Arms
   trigger:
   - entity_id: alarm_control_panel.abode_alarm_system
     from: disarmed
@@ -86,4 +86,7 @@
     to: armed_away
   condition: []
   action:
-  - service: light.turn_off
+  - alias: ''
+    data:
+      entity_id: group.all_lights
+    service: light.turn_off
