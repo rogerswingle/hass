@@ -1,0 +1,155 @@
+name: Home
+views:
+- title: Home
+  cards:
+  - type: entity-filter
+    entities:
+      - lock.front_door
+      - lock.kitchen_door
+      - lock.side_door
+    state_filter:
+      - "unlocked"
+    card: 
+      type: glance
+      title: Unlocked Doors
+  - type: glance
+    title: HVAC
+    entities:
+      - entity: climate.main_floor
+        name: Main Floor
+      - entity: sensor.main_floor_temperature
+        name: Main Floor
+      - entity: climate.upstairs
+        name: Upstairs
+      - entity: sensor.upstairs_temperature
+        name: Upstairs
+      - entity: sensor.basement_humidity
+        name: Basement
+      - entity: switch.dehumidifier
+        name: Basement
+    column_width: 25%
+  - type: weather-forecast
+    entity: weather.dark_sky
+  - type: picture-entity
+    entity: camera.front_door
+  - type: picture-entity
+    entity: camera.side
+  - type: picture-entity
+    entity: camera.garage
+- title: Main Floor
+  cards:
+  - type: entities
+    title: Kitchen
+    show_header_toggle: false
+    entities:
+    - light.kitchen
+    - binary_sensor.kitchen_door
+    - lock.kitchen_door
+  - type: entities
+    title: Living Room
+    show_header_toggle: false
+    entities:
+    - light.living_room
+    - binary_sensor.front_door
+    - lock.front_door
+  - type: entities
+    title: Office
+    show_header_toggle: false
+    entities:
+    - light.office
+    - binary_sensor.sliding_glass_door
+  - type: entities
+    title: Dining Room
+    show_header_toggle: false
+    entities:
+      - light.dining_room
+  - type: entities
+    title: Stairs
+    show_header_toggle: false
+    entities:
+      - light.upstairs_hall
+  - type: glance
+    title: Climate
+    show_header_toggle: false
+    column_width: 25%
+    entities:
+      - entity: climate.main_floor
+        name: Main Floor
+      - entity:  sensor.main_floor_temperature
+        name: Main Floor
+      - entity:  sensor.main_floor_humidity
+        name: Main Floor
+      - entity: sensor.kitchen_temperature
+        name: Kitchen
+- title: Upstairs
+  cards: 
+  - type: entities
+    title: Hall
+    show_header_toggle: false
+    entities:
+      - light.upstairs_hall
+  - type: glance
+    title: Climate
+    show_header_toggle: false
+    column_width: 25%
+    entities:
+      - entity: climate.upstairs
+        name: Upstairs
+      - entity:  sensor.upstairs_temperature
+        name: Upstairs
+      - entity:  sensor.upstairs_humidity
+        name: Upstairs
+      - entity: sensor.master_bedroom_temperature
+        name: Master Bedroom
+      
+
+- title: Basement
+  cards: 
+  - type: entities
+    title: Basement
+    show_header_toggle: false
+    entities:
+      - light.basement
+      - binary_sensor.side_door
+      - lock.side_door
+
+  - type: glance
+    title: Climate
+    show_header_toggle: false
+    column_width: 33.3333%
+    entities:
+      - entity: switch.dehumidifier
+        name: Dehumidifier
+      - entity: sensor.basement_temperature
+        name: Basement
+      - entity: sensor.basement_humidity
+        name: Basement
+
+- title: Attic
+  cards:
+  - type: glance
+    title: Climate
+    show_header_toggle: false
+    column_width: 50%
+    entities:
+      - entity: sensor.attic_temperature
+        name: Attic
+      - entity: sensor.attic_humidity
+        name: Attic
+
+
+
+- title: Outside
+  cards:
+  - type: entities
+    title: Front Exterior
+    entities:
+    - light.exterior_front_left
+    - light.exterior_front_right
+  - type: entities
+    title: Backyard
+    entities:
+    - light.deck_light
+    - light.kitchen_exterior
+
+

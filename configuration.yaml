@@ -31,6 +31,10 @@ nest:
   client_id: !secret nest_client_id
   client_secret: !secret nest_client_secret
 
+weather:
+  - platform: darksky
+    api_key: !secret darksky_api
+    mode: daily
 # Weather prediction
 sensor:
   - platform: darksky
@@ -88,8 +92,6 @@ homeassistant:
    - type: homeassistant
    - type: legacy_api_password
 
-# Enables the frontend
-frontend:
 
 # Enables configuration UI
 config:
@@ -155,3 +157,5 @@ group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 zone: !include zones.yaml
+frontend:
+  themes: !include themes/midnight.yaml

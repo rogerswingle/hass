@@ -90,3 +90,13 @@
     data:
       entity_id: group.all_lights
     service: light.turn_off
+- id: '1538442581060'
+  alias: Set Theme
+  trigger:
+  - event: start
+    platform: homeassistant
+  condition: []
+  action:
+  - data:
+      name: midnight
+    service: frontend.set_theme
