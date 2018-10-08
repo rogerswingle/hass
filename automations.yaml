@@ -1,13 +1,13 @@
 - id: '1526132812003'
-  alias: HVAC Doors Open
+  alias: HVAC - Doors Open
   trigger:
   - entity_id: group.all_doors
-    from: 'off'
-    platform: state
-    to: 'on'
     for:
       minutes: 2
       seconds: 30
+    from: 'off'
+    platform: state
+    to: 'on'
   condition:
   - condition: state
     entity_id: group.all_doors
@@ -17,7 +17,7 @@
       away_mode: 'on'
     service: climate.set_away_mode
 - id: '1526134493664'
-  alias: HVAC Doors Closed
+  alias: HVAC - Doors Closed
   trigger:
   - entity_id: group.all_doors
     from: 'on'
@@ -32,7 +32,7 @@
       resume_all: 'true'
     service: climate.ecobee_resume_program
 - id: '1537844255740'
-  alias: Dehumidifier On
+  alias: HVAC - Dehumidifier On
   trigger:
   - above: '45'
     entity_id: sensor.basement_humidity
@@ -46,7 +46,7 @@
       entity_id: switch.dehumidifier
     service: switch.turn_on
 - id: '1537844372849'
-  alias: Dehumidifier Off
+  alias: HVAC - Dehumidifier Off
   trigger:
   - below: '41'
     entity_id: sensor.basement_humidity
@@ -60,7 +60,7 @@
       entity_id: switch.dehumidifier
     service: switch.turn_off
 - id: '1538103855906'
-  alias: Wink Sucks
+  alias: Util - Wink Sucks
   trigger:
   - event_data:
       domain: light
@@ -70,15 +70,15 @@
       domain: lock
     event_type: call_service
     platform: event
-  - platform: time
-    minutes: /5
+  - minutes: /5
+    platform: time
     seconds: 0
   condition: []
   action:
   - service: wink.refresh_state_from_wink
   - delay: 00:00:15
 - id: '1538412705716'
-  alias: Turn off Lights when Alarm Arms
+  alias: Lights - Turn off Lights when Alarm Arms
   trigger:
   - entity_id: alarm_control_panel.abode_alarm_system
     from: disarmed
@@ -88,10 +88,10 @@
   action:
   - alias: ''
     data:
-      entity_id: group.all_lights
+      entity_id: group.all_interior_lights
     service: light.turn_off
 - id: '1538442581060'
-  alias: Set Theme
+  alias: Util - Set Theme
   trigger:
   - event: start
     platform: homeassistant
@@ -100,3 +100,57 @@
   - data:
       name: midnight
     service: frontend.set_theme
+- id: '1538661909265'
+  alias: Lights - Turn On Front Lights
+  trigger:
+  - event: sunset
+    platform: sun
+  condition: []
+  action:
+  - data:
+      entity_id: group.front_lights
+    service: light.turn_on
+- id: '1538662067245'
+  alias: Lights - Turn Off Front Lights
+  trigger:
+  - at: 00:00:00
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: group.front_lights
+    service: light.turn_off
+- id: '1539024003069'
+  alias: Lights - Turn On Kitchen Lights
+  trigger:
+  - entity_id: lock.kitchen_door
+    from: locked
+    platform: state
+    to: unlocked
+  - entity_id: binary_sensor.kitchen_door
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  action:
+  - data:
+      entity_id: light.kitchen
+    service: light.turn_on
+- id: '1539024281587'
+  alias: Lights - Turn on Backyard Lights
+  trigger:
+  - entity_id: alarm_control_panel.abode_alarm_system
+    from: armed_away
+    platform: state
+    to: disarmed
+  condition:
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  action:
+  - data:
+      entity_id: group.backyard_lights
+    service: light.turn_on

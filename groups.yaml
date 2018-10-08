@@ -88,8 +88,51 @@ all_exterior:
     - group.backyard
     - group.front_exterior
 
+
+main_floor_lights:
+  name: Main Floor Lights
+  entities:
+    - light.dining_room
+    - light.kitchen
+    - light.kitchen_exterior
+    - light.living_room
+    - light.office
+    - light.upstairs_hall
+
+backyard_lights:
+  name: Backyard Lights
+  entities:
+    - light.deck_light
+    - light.kitchen_exterior
+
+front_lights:
+  name: Front Lights
+  entities:
+    - light.exterior_front_left
+    - light.exterior_front_right
+
+basement_lights:
+  name: Basement Lights
+  entities:
+    - light.basement
+
+all_interior_lights:
+  name: All Interior Lights
+  entities:
+    - group.main_floor_lights
+    - group.basement_lights
+
+all_exterior_lights:
+  name:  All Exterior Lights
+  entities: 
+    - group.backyard_lights
+    - group.front_lights
+
 all_lights:
   name: All Lights
   entities:
-    - group.all_interior
-    - group.all_exterior
+    - group.all_interior_lights
+    - group.all_exterior_lights
+
+
+
