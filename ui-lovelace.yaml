@@ -36,6 +36,8 @@ views:
     entity: camera.side
   - type: picture-entity
     entity: camera.garage
+  - type: picture-entity
+    entity: camera.basement
 - title: Main Floor
   cards:
   - type: entities
