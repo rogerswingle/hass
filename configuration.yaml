@@ -20,11 +20,11 @@ camera:
 
 ffmpeg:
 
-ecovacs:
-  username: !secret ecovacs_username
-  password: !secret ecovacs_password
-  country: US
-  continent: NA
+#ecovacs:
+#  username: !secret ecovacs_username
+#  password: !secret ecovacs_password
+#  country: US
+#  continent: NA
 
 wink:
 
