@@ -77,19 +77,6 @@
   action:
   - service: wink.refresh_state_from_wink
   - delay: 00:00:15
-- id: '1538412705716'
-  alias: Lights - Turn off Lights when Alarm Arms
-  trigger:
-  - entity_id: alarm_control_panel.abode_alarm_system
-    from: disarmed
-    platform: state
-    to: armed_away
-  condition: []
-  action:
-  - alias: ''
-    data:
-      entity_id: group.all_interior_lights
-    service: light.turn_off
 - id: '1538442581060'
   alias: Util - Set Theme
   trigger:
@@ -121,7 +108,7 @@
       entity_id: group.front_lights
     service: light.turn_off
 - id: '1539024003069'
-  alias: Lights - Turn On Kitchen Lights
+  alias: Lights - Open Kitchen Door
   trigger:
   - entity_id: lock.kitchen_door
     from: locked
@@ -139,6 +126,9 @@
   - data:
       entity_id: light.kitchen
     service: light.turn_on
+  - data:
+      entity_id: group.backyard_lights
+    service: light.turn_on
 - id: '1539024281587'
   alias: Lights - Turn on Backyard Lights
   trigger:
@@ -154,3 +144,36 @@
   - data:
       entity_id: group.backyard_lights
     service: light.turn_on
+- id: '1539446834590'
+  alias: Alarm - Armed
+  trigger:
+  - entity_id: alarm_control_panel.abode_alarm_system
+    from: disarmed
+    platform: state
+    to: armed_away
+  condition: []
+  action:
+  - data:
+      fan_min_on_time: 0
+    service: climate.ecobee_set_fan_min_on_time
+  - data:
+      away_mode: 'on'
+    service: climate.set_away_mode
+  - data:
+      entity_id: group.all_interior_lights
+    service: light.turn_off
+- id: '1539446930146'
+  alias: Alarm - Disarmed
+  trigger:
+  - entity_id: alarm_control_panel.abode_alarm_system
+    from: armed_away
+    platform: state
+    to: disarmed
+  condition: []
+  action:
+  - data:
+      fan_min_on_time: 5
+    service: climate.ecobee_set_fan_min_on_time
+  - data:
+      resume_all: true
+    service: climate.ecobee_resume_program
