@@ -73,8 +73,8 @@ backyard:
 front_exterior:
   name: Front Exterior
   entities:
-    - light.exterior_front_left
-    - light.exterior_front_right
+    - light.front_door_left
+    - light.front_door_right
 
 all_interior:
   name: All Interior
@@ -108,8 +108,8 @@ backyard_lights:
 front_lights:
   name: Front Lights
   entities:
-    - light.exterior_front_left
-    - light.exterior_front_right
+    - light.front_door_left
+    - light.front_door_right
 
 basement_lights:
   name: Basement Lights

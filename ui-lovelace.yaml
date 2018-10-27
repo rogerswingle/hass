@@ -1,157 +1,183 @@
 name: Home
 views:
-- title: Home
-  cards:
-  - type: entity-filter
-    entities:
-      - lock.front_door
-      - lock.kitchen_door
-      - lock.side_door
-    state_filter:
-      - "unlocked"
-    card: 
-      type: glance
-      title: Unlocked Doors
-  - type: glance
-    title: HVAC
-    entities:
-      - entity: climate.main_floor
-        name: Main Floor
-      - entity: sensor.main_floor_temperature
-        name: Main Floor
-      - entity: climate.upstairs
-        name: Upstairs
-      - entity: sensor.upstairs_temperature
-        name: Upstairs
-      - entity: sensor.basement_humidity
-        name: Basement
-      - entity: switch.dehumidifier
-        name: Basement
-    column_width: 25%
-  - type: weather-forecast
-    entity: weather.dark_sky
-  - type: picture-entity
-    entity: camera.front_door
-  - type: picture-entity
-    entity: camera.side
-  - type: picture-entity
-    entity: camera.garage
-  - type: picture-entity
-    entity: camera.basement
-- title: Main Floor
-  cards:
-  - type: entities
-    title: Kitchen
-    show_header_toggle: false
-    entities:
-    - light.kitchen
-    - binary_sensor.kitchen_door
-    - lock.kitchen_door
-  - type: entities
-    title: Living Room
-    show_header_toggle: false
-    entities:
-    - light.living_room
-    - binary_sensor.front_door
-    - lock.front_door
-  - type: entities
-    title: Office
-    show_header_toggle: false
-    entities:
-    - light.office
-    - binary_sensor.sliding_glass_door
-  - type: entities
-    title: Dining Room
-    show_header_toggle: false
-    entities:
-      - light.dining_room
-  - type: entities
-    title: Stairs
-    show_header_toggle: false
-    entities:
-      - light.upstairs_hall
-  - type: glance
-    title: Climate
-    show_header_toggle: false
-    column_width: 25%
-    entities:
-      - entity: climate.main_floor
-        name: Main Floor
-      - entity:  sensor.main_floor_temperature
-        name: Main Floor
-      - entity:  sensor.main_floor_humidity
-        name: Main Floor
-      - entity: sensor.kitchen_temperature
-        name: Kitchen
-- title: Upstairs
-  cards: 
-  - type: entities
-    title: Hall
-    show_header_toggle: false
-    entities:
-      - light.upstairs_hall
-  - type: glance
-    title: Climate
-    show_header_toggle: false
-    column_width: 25%
-    entities:
-      - entity: climate.upstairs
-        name: Upstairs
-      - entity:  sensor.upstairs_temperature
-        name: Upstairs
-      - entity:  sensor.upstairs_humidity
-        name: Upstairs
-      - entity: sensor.master_bedroom_temperature
-        name: Master Bedroom
-      
+  - id: 0  # Automatically created id
+    title: Home
+    cards:
+      - id: d31c6dc740a14c85b25c600ed73b0e9b  # Automatically created id
+        type: entity-filter
+        entities:
+          - lock.front_door
+          - lock.kitchen_door
+          - lock.side_door
+        state_filter:
+          - unlocked
+        card:
+          type: glance
+          title: Unlocked Doors
+      - id: 852952b3f88448afad5db31116b38612  # Automatically created id
+        type: glance
+        title: HVAC
+        entities:
+          - entity: climate.main_floor
+            name: Main Floor
+          - entity: sensor.main_floor_temperature
+            name: Main Floor
+          - entity: climate.upstairs
+            name: Upstairs
+          - entity: sensor.upstairs_temperature
+            name: Upstairs
+          - entity: sensor.basement_humidity
+            name: Basement
+          - entity: switch.dehumidifier
+            name: Basement
+        column_width: 25%
+      - id: de363ab2b390463a9aeac7cf0e191da2  # Automatically created id
+        type: weather-forecast
+        entity: weather.dark_sky
+      - id: 1bb156c438464719a37e5d498cb03dbd  # Automatically created id
+        type: picture-entity
+        entity: camera.front_door
+      - id: be2c688b8e354958bb3bda917e64af8c  # Automatically created id
+        type: picture-entity
+        entity: camera.side
+      - id: 0fba4e6db39448be8d847f51d6a27bc8  # Automatically created id
+        type: picture-entity
+        entity: camera.garage
+      - id: 3fc93f4794ed4be9b96c7c77577c531a  # Automatically created id
+        type: picture-entity
+        entity: camera.basement
+  - id: 1  # Automatically created id
+    title: Main Floor
+    cards:
+      - id: 8e4edf09edc447128851d07d79e86eae  # Automatically created id
+        type: entities
+        title: Kitchen
+        show_header_toggle: false
+        entities:
+          - light.kitchen
+          - binary_sensor.kitchen_door
+          - lock.kitchen_door
+      - id: 77ca8eaaf24d47b384809331cd1741a9  # Automatically created id
+        type: entities
+        title: Living Room
+        show_header_toggle: false
+        entities:
+          - light.living_room
+          - binary_sensor.front_door
+          - lock.front_door
+      - id: 512ec3efc9634580a4f5f9abf1b8b95c  # Automatically created id
+        type: entities
+        title: Office
+        show_header_toggle: false
+        entities:
+          - light.office
+          - binary_sensor.sliding_glass_door
+      - id: b9183e4535a94606b72b04e2b036c515  # Automatically created id
+        type: entities
+        title: Dining Room
+        show_header_toggle: false
+        entities:
+          - light.dining_room
+      - id: f9f73f346a0546a2beaad18889d80791  # Automatically created id
+        type: entities
+        title: Stairs
+        show_header_toggle: false
+        entities:
+          - light.upstairs_hall
+      - id: 24970405d39b40a7a587b822447ad71f  # Automatically created id
+        type: glance
+        title: Climate
+        show_header_toggle: false
+        column_width: 25%
+        entities:
+          - entity: climate.main_floor
+            name: Main Floor
+          - entity: sensor.main_floor_temperature
+            name: Main Floor
+          - entity: sensor.main_floor_humidity
+            name: Main Floor
+          - entity: sensor.kitchen_temperature
+            name: Kitchen
+  - id: 2  # Automatically created id
+    title: Upstairs
+    cards:
+      - id: ceb1d1b41e644c639932f1c7cc060ac9  # Automatically created id
+        type: entities
+        title: Hall
+        show_header_toggle: false
+        entities:
+          - light.upstairs_hall
+      - id: 0dea36f85fd741e88c8f79e0febae1c8  # Automatically created id
+        type: glance
+        title: Climate
+        show_header_toggle: false
+        column_width: 25%
+        entities:
+          - entity: climate.upstairs
+            name: Upstairs
+          - entity: sensor.upstairs_temperature
+            name: Upstairs
+          - entity: sensor.upstairs_humidity
+            name: Upstairs
+          - entity: sensor.master_bedroom_temperature
+            name: Master Bedroom
 
-- title: Basement
-  cards: 
-  - type: entities
+
+  - id: 3  # Automatically created id
     title: Basement
-    show_header_toggle: false
-    entities:
-      - light.basement
-      - binary_sensor.side_door
-      - lock.side_door
+    cards:
+      - id: 9a20543a5ee94e9680c58ad80a24619d  # Automatically created id
+        type: entities
+        title: Basement
+        show_header_toggle: false
+        entities:
+          - light.basement
+          - binary_sensor.side_door
+          - lock.side_door
 
-  - type: glance
-    title: Climate
-    show_header_toggle: false
-    column_width: 33.3333%
-    entities:
-      - entity: switch.dehumidifier
-        name: Dehumidifier
-      - entity: sensor.basement_temperature
-        name: Basement
-      - entity: sensor.basement_humidity
-        name: Basement
+      - id: 0d11674562e84482b54ba937e2e6d150  # Automatically created id
+        type: glance
+        title: Climate
+        show_header_toggle: false
+        column_width: 33.3333%
+        entities:
+          - entity: switch.dehumidifier
+            name: Dehumidifier
+          - entity: sensor.basement_temperature
+            name: Basement
+          - entity: sensor.basement_humidity
+            name: Basement
 
-- title: Attic
-  cards:
-  - type: glance
-    title: Climate
-    show_header_toggle: false
-    column_width: 50%
-    entities:
-      - entity: sensor.attic_temperature
-        name: Attic
-      - entity: sensor.attic_humidity
-        name: Attic
+  - id: 4  # Automatically created id
+    title: Attic
+    cards:
+      - id: 429709e221374c3d8d77546758207b06  # Automatically created id
+        type: glance
+        title: Climate
+        show_header_toggle: false
+        column_width: 50%
+        entities:
+          - entity: sensor.attic_temperature
+            name: Attic
+          - entity: sensor.attic_humidity
+            name: Attic
 
 
 
-- title: Outside
-  cards:
-  - type: entities
-    title: Front Exterior
-    entities:
-    - light.exterior_front_left
-    - light.exterior_front_right
-  - type: entities
-    title: Backyard
-    entities:
-    - light.deck_light
-    - light.kitchen_exterior
+  - id: 5  # Automatically created id
+    title: Outside
+    cards:
+      - id: 460c7880a4194555a67cbaf293ed4944  # Automatically created id
+        type: entities
+        title: Front Exterior
+        entities:
+          - light.front_door_left
+          - light.front_door_right
+      - id: 80f29aed9e4b4c9c97fb813e0ef0fea6  # Automatically created id
+        type: entities
+        title: Backyard
+        entities:
+          - light.deck_light
+          - light.kitchen_exterior
 
 
