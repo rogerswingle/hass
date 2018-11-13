@@ -115,6 +115,8 @@ basement_lights:
   name: Basement Lights
   entities:
     - light.basement
+    - light.workshop
+    - light.basement_hvac
 
 all_interior_lights:
   name: All Interior Lights

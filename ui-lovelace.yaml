@@ -132,9 +132,10 @@ views:
         show_header_toggle: false
         entities:
           - light.basement
+          - light.workshop
+          - light.basement_hvac
           - binary_sensor.side_door
           - lock.side_door
-
       - id: 0d11674562e84482b54ba937e2e6d150  # Automatically created id
         type: glance
         title: Climate
