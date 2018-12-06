@@ -28,6 +28,8 @@ ffmpeg:
 
 wink:
 
+wemo:
+
 logi_circle:
   username: !secret logi_circle_username
   password: !secret logi_circle_password
@@ -118,9 +120,11 @@ http:
   use_x_forwarded_for: true
   trusted_networks:
    - 10.42.0.0/16
+   - 192.168.0.0/16
    - 127.0.0.1
   trusted_proxies:
    - 10.42.0.0/16
+   - 192.168.0.0/16
    - 127.0.0.1
 # Checks for available updates
 # Note: This component will send some information about your system to
