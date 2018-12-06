@@ -172,6 +172,7 @@
   condition: []
   action:
   - data:
+      entity_id: climate.main_floor
       fan_min_on_time: 5
     service: climate.ecobee_set_fan_min_on_time
   - data:

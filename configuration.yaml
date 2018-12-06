@@ -78,6 +78,13 @@ sensor:
       - type: processor_use
       - type: last_boot
   - platform: logi_circle
+  - platform: ups
+    username: !secret ups_username
+    password: !secret ups_password
+  - platform: fedex
+    username: !secret fedex_username
+    password: !secret fedex_password
+
 
 homeassistant:
   # Name of the location where Home Assistant is running
